@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "newTabPage_mod",
+  "author": "zawa159",
+  "version": "1.0.0",
+  "description": "新しいタブの拡張機能",
+  "permissions" : ["management"],
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  }
+}
