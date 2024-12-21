@@ -1,6 +1,6 @@
 const clock = () => {
   // 結果配列初期化
-  var dateTime = [];
+  let dateTime = [];
 
   // 現在の日時・時刻の情報を取得
   const d = new Date();
@@ -36,14 +36,22 @@ const clock = () => {
   return dateTime;
 };
 
-
-window.addEventListener('DOMContentLoaded', function(){
-
-  // 1秒ごとに実行
+const showTime = () => {
   setInterval(() => {
     veiwMsg = clock();
     //console.log(veiwMsg[0]);
     document.querySelector(".clock-date").innerText = veiwMsg[0];
     document.querySelector(".clock-time").innerText = veiwMsg[1];
-  }, 1000);
+  }, 1000);  
+}
+
+window.addEventListener('DOMContentLoaded', function(){
+
+  // 1秒ごとに実行
+  setTimeout(function () {
+    showTime();
+    // 実行タイミングをミリ秒単位で合わせる
+  }, 1000 - new Date().getUTCMilliseconds() 
+  );
+
 });
